@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tixi Renovations | <%= yield(:title) %></title>
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <header>
+      <%= render partial: 'layouts/header' %>
+    </header>
+    <nav>
+      <% if nav_pages %>
+        <ul>
+          <% nav_pages.each do |page| %>
+            <li><%= link_to page.name, root_url + page.slug %></li>
+          <% end %>
+        </ul>
+      <% end %>
+    </nav>
+    <main>
+      <h2><%= yield(:title) %></h2>
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, id: "flash_#{name}" %>
+      <% end %>
+      <%= yield %>
+    </main>
+    <footer>
+      <%= render partial: 'layouts/footer' %>
+    </footer>
+  </body>
+</html>

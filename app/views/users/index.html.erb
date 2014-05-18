@@ -1,0 +1,28 @@
+<% title "Users" %>
+
+<% if @users.present? %>
+  <ul>
+    <% @users.each do |user| %>
+      <li>
+        <dl>
+          <dt>Name</dt>
+	        <dd>@<%= user.name %></dd>
+          <dt>Provider</dt>
+          <dd><%= user.provider %></dd>
+          <dt>Administrator?</dt>
+          <dd><%= user.administrator %></dd>
+        </dl>
+        <ul>
+          <li><%= link_to "Edit User", edit_user_path(user) %></li>
+          <li>
+            <%= link_to 'Delete User', @user,
+              data: { confirm: 'Are you sure you want to delete this user?' },
+              method: :delete
+            %>
+          </li>
+        </ul>
+      </li>
+    <% end %>
+  </ul>
+  <%= paginate @users %>
+<% end %>

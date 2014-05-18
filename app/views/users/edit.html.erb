@@ -1,0 +1,11 @@
+<% title "Edit User" %>
+
+<%= form_for @user do |f| %>
+  <%= render "shared/error_messages", target: @user %>
+  <div>
+    <%= f.check_box :administrator %> <%= f.label :administrator, "Administrator?" %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

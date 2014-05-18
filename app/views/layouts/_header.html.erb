@@ -1,0 +1,13 @@
+<% if user_signed_in? %>
+  <ul>
+    <li>Logged in as <strong><%= current_user.name %></strong>.</li>
+    <li>You <%= current_user.administrator? ? "are" : "are not" %> an administrator.</li>
+    <li><%= link_to "Log Out", destroy_user_session_path %></li>
+    <% if current_user.administrator? %>
+      <li><%= link_to "View Pages", pages_path %></li>
+      <li><%= link_to "View Photos", photos_path %></li>
+      <li><%= link_to "View Users", users_path %></li>
+    <% end %>
+  </ul>
+<% end %>
+<%= link_to image_tag("logo.jpg", id: "logo", alt: "Tixi Renovations"), root_url %>

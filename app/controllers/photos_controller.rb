@@ -2,7 +2,7 @@ class PhotosController < ApplicationController
   before_action :load_photo, except: [:index, :new, :create]
 
   def index
-    @photos = policy_scope(Photo.order(:name))
+    @photos = policy_scope(Photo.order(:created_at))
   end
 
   def new
@@ -37,7 +37,6 @@ class PhotosController < ApplicationController
 
   def photo_params
     params.require(:photo).permit(
-      :name,
       :description,
       :photo,
       :photo_cache,
@@ -46,7 +45,7 @@ class PhotosController < ApplicationController
   end
 
   def load_photo
-    @photo = Photo.find_by slug: params[:id]
+    @photo = Photo.find params[:id]
     authorize @photo
   end
 end

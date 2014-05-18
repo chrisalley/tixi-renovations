@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   end
 
   resources :pages
-  resources :photos
+  resources :photos, path: 'gallery'
   resources :users
 
   get ':id', to: 'pages#show'

@@ -16,6 +16,7 @@
           <% nav_pages.each do |page| %>
             <li><%= link_to page.name, root_url + page.slug %></li>
           <% end %>
+          <li><%= link_to "Gallery", photos_path %></li>
         </ul>
       <% end %>
     </nav>

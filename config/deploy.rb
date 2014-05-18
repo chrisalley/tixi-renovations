@@ -1,10 +1,10 @@
 set :application, "tixirenovations"
 
-role :web, "web432.webfaction.com"                          # Your HTTP server, Apache/etc
-role :app, "web432.webfaction.com"                          # This may be the same as your `Web` server
-role :db,  "web432.webfaction.com", :primary => true        # This is where Rails migrations will run
+role :web, "web432.webfaction.com" # Your HTTP server, Apache/etc
+role :app, "web432.webfaction.com" # This may be the same as your `Web` server
+role :db,  "web432.webfaction.com", primary: true # This is where Rails migrations will run
 
-set :user, "chrisalley"
+set :user, "alextixi"
 set :deploy_to, "/home/alextixi/webapps/tixirenovations"
 set :use_sudo, false
 default_run_options[:pty] = true

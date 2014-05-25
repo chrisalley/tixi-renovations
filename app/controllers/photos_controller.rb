@@ -1,8 +1,12 @@
 class PhotosController < ApplicationController
-  before_action :load_photo, except: [:index, :new, :create]
+  before_action :load_photo, except: [:index, :gallery, :new, :create]
 
   def index
     @photos = policy_scope(Photo.order(:created_at))
+  end
+
+  def gallery
+    @photos = policy_scope(Photo.where(published: true).order(:created_at))
   end
 
   def new

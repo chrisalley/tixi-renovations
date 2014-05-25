@@ -1,0 +1,42 @@
+<% title "Gallery" %>
+
+<% if @photos.present? %>
+  <div id="carousel-example-generic" class="carousel slide"
+    data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <% count = 0 %>
+      <% @photos.each do |photo| %>
+        <li data-target="#carousel-example-generic" data-slide-to="<%= count %>"
+          class="<%= "active" if count == 0 %>"></li>
+        <% count += 1 %>
+      <% end %>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <% count = 0 %>
+      <% @photos.each do |photo| %>
+        <div class="item <%= "active" if count == 0 %>">
+          <%= image_tag photo.photo_url(:regular) %>
+          <% if photo.description.present? %>
+            <div class="carousel-caption">
+              <p><%= photo.description %></p>
+            </div>
+          <% end %>
+        </div>
+        <% count += 1 %>
+      <% end %>
+    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carousel-example-generic"
+      data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic"
+      data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+  </div>
+<% end %>

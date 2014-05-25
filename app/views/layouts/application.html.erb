@@ -1,34 +1,47 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Tixi Renovations | <%= yield(:title) %></title>
+    <title>Tixi Renovations Melbourne | <%= yield(:title) %></title>
     <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <header>
-      <%= render partial: 'layouts/header' %>
-    </header>
-    <nav>
-      <% if nav_pages %>
-        <ul>
-          <% nav_pages.each do |page| %>
-            <li><%= link_to page.name, root_url + page.slug %></li>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <%= render partial: 'layouts/header' %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <%= link_to image_tag("logo.jpg", id: "logo",
+            alt: "Tixi Renovations Melbourne"), root_url %>
+        </div>
+        <div class="col-md-8">
+          <% if nav_pages %>
+            <ul class="nav nav-tabs">
+              <% nav_pages.each do |page| %>
+                <li class="<%= 'active' if params[:id] == page.slug %>">
+                  <%= link_to page.name, root_url + page.slug %>
+                </li>
+              <% end %>
+              <li class="<%= 'active' if (params[:controller] == 'photos' &&
+                params[:action] == 'gallery') %>">
+                <%= link_to "Gallery", gallery_path %>
+              </li>
+            </ul>
           <% end %>
-          <li><%= link_to "Gallery", photos_path %></li>
-        </ul>
-      <% end %>
-    </nav>
-    <main>
-      <h2><%= yield(:title) %></h2>
-      <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, id: "flash_#{name}" %>
-      <% end %>
-      <%= yield %>
-    </main>
-    <footer>
-      <%= render partial: 'layouts/footer' %>
-    </footer>
+          <h2><%= yield(:title) %></h2>
+          <%= render partial: 'layouts/flash_messages' %>
+          <%= yield %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <%= render partial: 'layouts/footer' %>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

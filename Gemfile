@@ -16,6 +16,7 @@ group :production do
   gem 'therubyracer', '~> 0.12.1'
 end
 
+gem 'bootstrap-sass', '~> 3.1.1.1'
 gem 'carrierwave', '~> 0.10.0'
 gem 'coffee-rails', '~> 4.0.1'
 gem 'devise', '~> 3.2.4'

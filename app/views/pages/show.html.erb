@@ -5,10 +5,22 @@
 <% end %>
 
 <% if policy(@page).edit? && policy(@page).destroy? %>
-  <ul class="administration">
-    <li><%= link_to 'Edit Page', edit_page_path(@page) %></li>
-    <li><%= link_to 'Delete Page', @page, data: { confirm: 'Are you sure you want to delete this page?' }, method: :delete %></li>
-  </ul>
+  <div class="btn-toolbar" role="toolbar">
+    <div class="btn-group">
+      <%= link_to 'Edit Page', edit_page_path(@page),
+        class: "btn btn-default",
+        role: "button"
+      %>
+    </div>
+    <div class="btn-group">
+      <%= link_to 'Delete Page', @page,
+        data: { confirm: 'Are you sure you want to delete this page?' },
+        method: :delete,
+        class: "btn btn-danger",
+        role: "button"
+      %>
+    </div>
+  </div>
 <% end %>
 
 <% if @page.content? %>

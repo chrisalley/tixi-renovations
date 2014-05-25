@@ -1,11 +1,19 @@
 <% title "Edit User" %>
 
-<%= form_for @user do |f| %>
+<%= form_for @user, html: { role: "form", class: "form-horizontal" } do |f| %>
   <%= render "shared/error_messages", target: @user %>
-  <div>
-    <%= f.check_box :administrator %> <%= f.label :administrator, "Administrator?" %>
+  <div class="form-group">
+    <div class="col-md-12">
+      <div class="checkbox">
+        <label>
+          <%= f.check_box :administrator %>Make <%= link_to_twitter @user.name %> an administrator?
+        </label>
+      </div>
+    </div>
   </div>
-  <div>
-    <%= f.submit %>
+  <div class="form-group">
+    <div class="col-md-12">
+      <%= f.submit class: "btn btn-default" %>
+    </div>
   </div>
 <% end %>

@@ -1,19 +1,30 @@
-<%= form_for @photo, html: { multipart: true } do |f| %>
+<%= form_for @photo, html: { multipart: true, role: "form", class:
+  "form-horizontal" } do |f| %>
   <%= render "shared/error_messages", target: @photo %>
-  <div>
-    <%= f.label :description, "Description" %><br />
-    <%= f.text_area :description %>
+  <div class="form-group">
+    <%= f.label :description, "Description", class: "col-md-2 control-label" %>
+    <div class="col-md-10">
+      <%= f.text_area :description, class: "form-control", rows: "5" %>
+    </div>
   </div>
-  <div>
-  	<%= f.label :photo, "Photo" %><br />
-    <%= image_tag(@photo.photo_url(:thumbnail)) if @photo.photo? %>
-    <%= f.file_field :photo %>
-    <%= f.hidden_field :photo_cache %>
+  <div class="form-group">
+  	<%= f.label :photo, "Photo", class: "col-md-2 control-label" %>
+    <div class="col-md-10">
+      <%= image_tag(@photo.photo_url(:thumbnail)) if @photo.photo? %>
+      <%= f.file_field :photo, class: "form-control" %>
+      <%= f.hidden_field :photo_cache %>
+    </div>
   </div>
-  <div>
-    <%= f.check_box :published %> <%= f.label :published, "Publish?" %>
+  <div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+      <div class="checkbox">
+        <label><%= f.check_box :published %>Publish this photo?</label>
+      </div>
+    </div>
   </div>
-  <div>
-    <%= f.submit %>
+  <div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+      <%= f.submit class: "btn btn-default" %>
+    </div>
   </div>
 <% end %>

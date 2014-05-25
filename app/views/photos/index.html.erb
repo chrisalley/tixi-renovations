@@ -1,29 +1,42 @@
-<% title "Gallery" %>
+<% title "Photos" %>
 
-<% if policy(Photo).new? %>
-  <p><%= link_to 'New Photo', new_photo_path %></p>
-<% end %>
-
-<% if @photos.present? %>
-  <ul>
-    <% @photos.each do |photo| %>
-      <li>
-        <% if policy(photo).edit? && policy(photo).destroy? %>
-          <ul class="administration">
-            <li><%= link_to 'Edit Photo', edit_photo_path(photo) %></li>
-            <li>
-              <%= link_to 'Delete Photo', photo, data:
-                { confirm: 'Are you sure you want to delete this photo?' },
-                method: :delete %>
-            </li>
-            <% unless photo.published? %>
-              <li><span class="unpublished">Unpublished</span></li>
-            <% end %>
-          </ul>
-        <% end %>
-        <%= image_tag photo.photo_url(:regular) %>
-        <%= raw markdown_to_html photo.description if photo.description? %>
-      </li>
-    <% end %>
-  </ul>
+<% if @photos.present? && administrator? %>
+  <div>
+    <%= link_to 'New Photo', new_photo_path,
+      class: "btn btn-default",
+      role: "button"
+    %>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Photo</th>
+        <th>Published?</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @photos.each do |photo| %>
+        <tr>
+          <td><%= image_tag photo.photo_url(:thumbnail) %></td>
+          <td><%= photo.published? ? "Yes" : "No" %></td>
+          <td>
+            <%= link_to 'Edit Photo', edit_photo_path(photo),
+              class: "btn btn-default",
+              role: "button"
+            %>
+          </td>
+          <td>
+            <%= link_to 'Delete Photo', photo, data:
+              { confirm: 'Are you sure you want to delete this photo?' },
+              method: :delete,
+              class: "btn btn-danger",
+              role: "button"
+            %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 <% end %>

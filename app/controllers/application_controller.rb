@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   helper_method :nav_pages
+  helper_method :administrator?
 
   include Pundit
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
@@ -13,6 +14,13 @@ class ApplicationController < ActionController::Base
 
   def nav_pages
     Page.all.where(published: true)
+  end
+
+  def administrator?
+    if current_user
+      return true if current_user.administrator?
+    end
+    false
   end
 
   def user_not_authorized

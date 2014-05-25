@@ -1,28 +1,39 @@
 <% title "Users" %>
 
-<% if @users.present? %>
-  <ul>
-    <% @users.each do |user| %>
-      <li>
-        <dl>
-          <dt>Name</dt>
-	        <dd>@<%= user.name %></dd>
-          <dt>Provider</dt>
-          <dd><%= user.provider %></dd>
-          <dt>Administrator?</dt>
-          <dd><%= user.administrator %></dd>
-        </dl>
-        <ul>
-          <li><%= link_to "Edit User", edit_user_path(user) %></li>
-          <li>
-            <%= link_to 'Delete User', @user,
-              data: { confirm: 'Are you sure you want to delete this user?' },
-              method: :delete
+<% if @users.present? && administrator? %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Provider</th>
+        <th>Administrator?</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= link_to_twitter user.name %></td>
+          <td><%= user.provider.humanize %></td>
+          <td><%= user.administrator? ? "Yes" : "No" %></td>
+          <td>
+            <%= link_to "Edit User", edit_user_path(user),
+              class: "btn btn-default",
+              role: "button"
             %>
-          </li>
-        </ul>
-      </li>
-    <% end %>
-  </ul>
+          </td>
+          <td>
+            <%= link_to 'Delete User', user,
+              data: { confirm: 'Are you sure you want to delete this user?' },
+              method: :delete,
+              class: "btn btn-danger",
+              role: "button"
+            %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
   <%= paginate @users %>
 <% end %>

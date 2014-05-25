@@ -1,16 +1,46 @@
 <% title "Pages" %>
 
 <% if policy(Page).new? %>
-  <p><%= link_to 'New Page', new_page_path %></p>
+  <p>
+    <%= link_to 'New Page', new_page_path,
+      class: "btn btn-default",
+      role: "button"
+    %>
+  </p>
 <% end %>
 
-<% if @pages.present? %>
-  <ul>
-    <% @pages.each do |page| %>
-      <li>
-        <%= link_to page.name, page %><% unless page.published %> - <span class="unpublished">Unpublished</span><% end %>
-      </li>
+<% if @pages.present? && administrator? %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Published?</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @pages.each do |page| %>
+        <tr>
+          <td><%= link_to page.name, page %></td>
+          <td><%= page.published? ? "Yes" : "No" %></td>
+          <td>
+            <%= link_to "Edit Page", edit_page_path(page),
+              class: "btn btn-default",
+              role: "button"
+            %>
+          </td>
+          <td>
+            <%= link_to 'Delete Page', page,
+              data: { confirm: 'Are you sure you want to delete this page?' },
+              method: :delete,
+              class: "btn btn-danger",
+              role: "button"
+            %>
+          </td>
+        </tr>
     <% end %>
-  </ul>
+    </tbody>
+  </table>
   <%= paginate @pages %>
 <% end %>

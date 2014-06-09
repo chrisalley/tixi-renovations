@@ -14,6 +14,7 @@ class EnquiriesController < ApplicationController
     @enquiry = Enquiry.new(enquiry_params)
     authorize @enquiry
     if @enquiry.save
+      EnquiryMailer.new_enquiry_email(@enquiry).deliver
       redirect_to root_url, notice: "Your enquiry has been submitted."
     else
       render :new

@@ -1,0 +1,30 @@
+<% title "Enquiries" %>
+
+<% if @enquiries.present? && administrator? %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Full Name</th>
+        <th>Email Address</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @enquiries.each do |enquiry| %>
+        <tr>
+          <td><%= link_to enquiry.full_name, enquiry %></td>
+          <td><%= enquiry.email_address %></td>
+          <td>
+            <%= link_to 'Delete Enquiry', enquiry,
+              data: { confirm: 'Are you sure you want to delete this enquiry?' },
+              method: :delete,
+              class: "btn btn-danger",
+              role: "button"
+            %>
+          </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <%= paginate @enquiries %>
+<% end %>

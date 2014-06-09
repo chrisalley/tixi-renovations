@@ -1,0 +1,57 @@
+<% title "Viewing Enquiry" %>
+
+<% if policy(@enquiry).destroy? %>
+  <div class="btn-toolbar" role="toolbar">
+    <div class="btn-group">
+      <%= link_to 'Delete Enquiry', @enquiry,
+        data: { confirm: 'Are you sure you want to delete this enquiry?' },
+        method: :delete,
+        class: "btn btn-danger",
+        role: "button"
+      %>
+    </div>
+  </div>
+<% end %>
+
+<dl>
+  <% if @enquiry.type_of_work? %>
+    <dt>Type of Work</dt>
+    <dd><%= @enquiry.type_of_work %></dd>  
+  <% end %>
+  <% if @enquiry.first_name? %>
+    <dt>First Name</dt>
+    <dd><%= @enquiry.first_name %></dd>  
+  <% end %>
+  <% if @enquiry.first_name? %>
+    <dt>Last Name</dt>
+    <dd><%= @enquiry.last_name %></dd>  
+  <% end %>
+  <% if @enquiry.email_address? %>
+    <dt>Email Address</dt>
+    <dd><%= @enquiry.email_address %></dd>  
+  <% end %>
+  <% if @enquiry.telephone? %>
+    <dt>Telephone</dt>
+    <dd><%= @enquiry.telephone %></dd>  
+  <% end %>
+  <% if @enquiry.address_line_1? %>
+    <dt>Address Line 1</dt>
+    <dd><%= @enquiry.address_line_1 %></dd>  
+  <% end %>
+  <% if @enquiry.address_line_2? %>
+    <dt>Address Line 2</dt>
+    <dd><%= @enquiry.address_line_2 %></dd>  
+  <% end %>
+  <% if @enquiry.city? %>
+    <dt>City</dt>
+    <dd><%= @enquiry.city %></dd>  
+  <% end %>
+  <% if @enquiry.state? %>
+    <dt>State</dt>
+    <dd><%= @enquiry.state %></dd>  
+  <% end %>
+  <% if @enquiry.postal_code? %>
+    <dt>Postal Code</dt>
+    <dd><%= @enquiry.postal_code %></dd>  
+  <% end %>
+</dl>

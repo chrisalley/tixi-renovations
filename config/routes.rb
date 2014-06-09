@@ -5,9 +5,11 @@ Rails.application.routes.draw do
     get 'log-out', to: 'sessions#destroy', as: :destroy_user_session
   end
 
+  resources :enquiries
   resources :pages
   resources :photos
   resources :users
+  get 'enquiry', to: 'enquiries#new'
   get 'gallery', to: 'photos#gallery', as: :gallery
 
   get ':id', to: 'pages#show'

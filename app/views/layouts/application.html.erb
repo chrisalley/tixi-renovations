@@ -30,6 +30,10 @@
                 params[:action] == 'gallery') %>">
                 <%= link_to "Gallery", gallery_path %>
               </li>
+              <li class="<%= 'active' if (params[:controller] == 'enquiries' &&
+                params[:action] == 'new') %>">
+                <%= link_to "Enquiry", new_enquiry_path %>
+              </li>
             </ul>
           <% end %>
           <h2><%= yield(:title) %></h2>

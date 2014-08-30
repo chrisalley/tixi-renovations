@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.1.1'
+gem 'rails', '4.1.5'
 
 group :development do
   gem 'capistrano', '~> 2.15.5'

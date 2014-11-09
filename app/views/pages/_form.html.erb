@@ -1,26 +1,26 @@
 <%= form_for @page, html: { role: "form", class: "form-horizontal" } do |f| %>
   <%= render "shared/error_messages", target: @page %>
   <div class="form-group">
-    <%= f.label :name, "Name", class: "col-md-2 control-label" %>
-    <div class="col-md-10">
+    <%= f.label :name, "Name", class: "col-xs-2 control-label" %>
+    <div class="col-xs-10">
       <%= f.text_field :name, class: "form-control" %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label :content, "Content", class: "col-md-2 control-label" %>
-    <div class="col-md-10">
+    <%= f.label :content, "Content", class: "col-xs-2 control-label" %>
+    <div class="col-xs-10">
       <%= f.text_area :content, class: "form-control", rows: "10" %>
     </div>
   </div>
   <div class="form-group">
-    <div class="col-md-offset-2 col-md-10">
+    <div class="col-xs-offset-2 col-xs-10">
       <div class="checkbox">
         <label><%= f.check_box :published %>Publish this page?</label>
       </div>
     </div>
   </div>
   <div class="form-group">
-    <div class="col-md-offset-2 col-md-10">
+    <div class="col-xs-offset-2 col-xs-10">
       <%= f.submit class: "btn btn-default" %>
     </div>
   </div>

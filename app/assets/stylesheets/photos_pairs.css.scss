@@ -1,19 +1,12 @@
-// Place all the styles related to the photos controller here.
+// Place all the styles related to the photo_pairs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "bootstrap-sprockets";
 @import "bootstrap";
 
 #carousel-example-generic {
   width: 600px;
   height: 400px;
   background-color: black;
-}
-
-.item {
-  display: block;
-  height: 400px;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
 }

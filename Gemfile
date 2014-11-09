@@ -22,7 +22,8 @@ group :production do
   gem 'therubyracer', '~> 0.12.1'
 end
 
-gem 'bootstrap-sass', '~> 3.1.1.1'
+gem 'autoprefixer-rails', '~> 3.1.2'
+gem 'bootstrap-sass', '~> 3.3.0'
 gem 'carrierwave', '~> 0.10.0'
 gem 'coffee-rails', '~> 4.0.1'
 gem 'devise', '~> 3.2.4'
@@ -35,7 +36,7 @@ gem 'omniauth-twitter', '~> 1.0.1'
 gem 'pg', '~> 0.17.1'
 gem 'pundit', '~> 0.2.3'
 gem 'sanitize', '~> 2.1.0'
-gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails', '~> 4.0.4'
 gem 'stringex', '~> 2.5.2'
 gem 'turbolinks', '~> 2.2.2'
 gem 'uglifier', '>= 2.5.0'

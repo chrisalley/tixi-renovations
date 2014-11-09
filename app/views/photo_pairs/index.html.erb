@@ -1,0 +1,47 @@
+<% title "Photo Pairs" %>
+
+<% if policy(PhotoPair).new? %>
+  <p>
+    <%= link_to 'New Photo Pair', new_photo_pair_path,
+      class: "btn btn-default",
+      role: "button"
+    %>
+  </p>
+<% end %>
+
+<% if @photo_pairs.present? && administrator? %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Before Photo</th>
+        <th>After Photo</th>
+        <th>Published?</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @photo_pairs.each do |photo_pair| %>
+        <tr>
+          <td><%= image_tag photo_pair.before_photo_url(:thumbnail) %></td>
+          <td><%= image_tag photo_pair.after_photo_url(:thumbnail) %></td>
+          <td><%= photo_pair.published? ? "Yes" : "No" %></td>
+          <td>
+            <%= link_to 'Edit Photo Pair', edit_photo_pair_path(photo_pair),
+              class: "btn btn-default",
+              role: "button"
+            %>
+          </td>
+          <td>
+            <%= link_to 'Delete Photo Pair', photo_pair, data:
+              { confirm: 'Are you sure you want to delete this photo pair?' },
+              method: :delete,
+              class: "btn btn-danger",
+              role: "button"
+            %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

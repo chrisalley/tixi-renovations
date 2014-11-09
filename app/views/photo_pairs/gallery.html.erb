@@ -1,12 +1,12 @@
 <% title "Gallery" %>
 
-<% if @photos.present? %>
+<% if @photo_pairs.present? %>
   <div id="carousel-example-generic" class="carousel slide"
     data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
       <% count = 0 %>
-      <% @photos.each do |photo| %>
+      <% @photo_pairs.each do |photo_pair| %>
         <li data-target="#carousel-example-generic" data-slide-to="<%= count %>"
           class="<%= "active" if count == 0 %>"></li>
         <% count += 1 %>
@@ -14,14 +14,14 @@
     </ol>
 
     <!-- Wrapper for slides -->
-    <div class="carousel-inner">
+    <div class="carousel-inner" role="listbox">
       <% count = 0 %>
-      <% @photos.each do |photo| %>
+      <% @photo_pairs.each do |photo_pair| %>
         <div class="item <%= "active" if count == 0 %>">
-          <%= image_tag photo.photo_url(:regular) %>
-          <% if photo.description.present? %>
+          <%= image_tag photo_pair.after_photo_url(:regular) %>
+          <% if photo_pair.caption.present? %>
             <div class="carousel-caption">
-              <p><%= photo.description %></p>
+              <p><%= photo_pair.caption %></p>
             </div>
           <% end %>
         </div>
@@ -31,11 +31,11 @@
 
     <!-- Controls -->
     <a class="left carousel-control" href="#carousel-example-generic"
-      data-slide="prev">
+      role="button" data-slide="prev">
       <span class="glyphicon glyphicon-chevron-left"></span>
     </a>
     <a class="right carousel-control" href="#carousel-example-generic"
-      data-slide="next">
+      role="button" data-slide="next">
       <span class="glyphicon glyphicon-chevron-right"></span>
     </a>
   </div>

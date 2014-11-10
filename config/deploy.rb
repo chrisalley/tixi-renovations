@@ -8,6 +8,10 @@ set :user, "alextixi"
 set :deploy_to, "/home/alextixi/webapps/tixirenovations"
 set :use_sudo, false
 default_run_options[:pty] = true
+set :default_environment, {
+ 'PATH' => "#{deploy_to}/bin:$PATH",
+ 'GEM_HOME' => "#{deploy_to}/gems",
+}
 
 set :scm, "git"
 set :repository, "https://chrisalley@github.com/chrisalley/tixi-renovations.git"

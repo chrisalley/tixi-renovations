@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   before_action :load_page, except: [:index, :new, :create]
+  before_action :set_request_variant
 
   def index
     @pages = policy_scope(Page.order(:name).page(params[:page]).per(100))
@@ -50,5 +51,9 @@ class PagesController < ApplicationController
       @page = Page.find_by slug: "home"
     end
     authorize @page
+  end
+
+  def set_request_variant
+    request.variant = :mobile if browser.mobile?
   end
 end

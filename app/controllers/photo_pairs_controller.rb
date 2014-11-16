@@ -1,5 +1,6 @@
 class PhotoPairsController < ApplicationController
   before_action :load_photo_pair, except: [:index, :gallery, :new, :create]
+  before_action :set_request_variant
 
   def index
     @photo_pairs = policy_scope(PhotoPair.order(:created_at))
@@ -53,5 +54,9 @@ class PhotoPairsController < ApplicationController
   def load_photo_pair
     @photo_pair = PhotoPair.find params[:id]
     authorize @photo_pair
+  end
+
+  def set_request_variant
+    request.variant = :mobile if browser.mobile?
   end
 end

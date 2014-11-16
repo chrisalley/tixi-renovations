@@ -1,5 +1,6 @@
 class EnquiriesController < ApplicationController
   before_action :load_enquiry, except: [:index, :new, :create]
+  before_action :set_request_variant
 
   def index
     @enquiries = policy_scope(Enquiry.order(:last_name).page(params[:page]).per(100))
@@ -46,5 +47,9 @@ class EnquiriesController < ApplicationController
   def load_enquiry
     @enquiry = Enquiry.find params[:id]
     authorize @enquiry
+  end
+  
+  def set_request_variant
+    request.variant = :mobile if browser.mobile?
   end
 end

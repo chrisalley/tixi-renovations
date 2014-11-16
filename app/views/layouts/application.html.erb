@@ -7,47 +7,39 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-xs-12">
-          <%= render partial: 'layouts/header' %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12">
-          <%= link_to image_tag("logo.jpg", id: "logo",
-            alt: "Tixi Renovations Melbourne"), root_url %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12">
-          <% if nav_pages %>
-            <ul class="nav nav-tabs">
-              <% nav_pages.each do |page| %>
-                <li class="<%= 'active' if params[:id] == page.slug %>">
-                  <%= link_to page.name, root_url + page.slug %>
-                </li>
-              <% end %>
-              <li class="<%= 'active' if (params[:controller] == 'photos' &&
-                params[:action] == 'gallery') %>">
-                <%= link_to "Gallery", gallery_path %>
-              </li>
-              <li class="<%= 'active' if (params[:controller] == 'enquiries' &&
-                params[:action] == 'new') %>">
-                <%= link_to "Enquiry", new_enquiry_path %>
-              </li>
-            </ul>
+    <%= render partial: 'layouts/header' %>
+    <header>
+      <%= link_to image_tag("logo.jpg", id: "logo",
+        alt: "Tixi Renovations Melbourne"), root_url %>
+    </header>
+    <nav>
+      <% if nav_pages %>
+        <ul>
+          <% nav_pages.each do |page| %>
+            <li class="<%= 'active' if params[:id] == page.slug %>">
+              <%= link_to page.name, root_url + page.slug %>
+            </li>
           <% end %>
-          <h2><%= yield(:title) %></h2>
-          <%= render partial: 'layouts/flash_messages' %>
-          <%= yield %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12">
-          <%= render partial: 'layouts/footer' %>
-        </div>
-      </div>
-    </div>
+          <li class="<%= 'active' if (params[:controller] == 'photos' &&
+            params[:action] == 'gallery') %>">
+            <%= link_to "Gallery", gallery_path %>
+          </li>
+          <li class="<%= 'active' if (params[:controller] == 'enquiries' &&
+            params[:action] == 'new') %>">
+            <%= link_to "Enquiry", new_enquiry_path %>
+          </li>
+        </ul>
+      <% end %>
+    </nav>
+    <main>
+      <% unless params[:controller] == 'pages' && params[:id] == 'home' %>
+        <h2><%= yield(:title) %></h2>
+      <% end %>
+      <%= render partial: 'layouts/flash_messages' %>
+      <%= yield %>
+    </main>
+    <footer>
+      <%= render partial: 'layouts/footer' %>
+    </footer>
   </body>
 </html>

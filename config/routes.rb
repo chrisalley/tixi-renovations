@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :photo_pairs, path: 'photo-pairs'
   resources :users
   get 'enquiry', to: 'enquiries#new'
-  get 'gallery', to: 'photo_pairs#gallery', as: :gallery
+  get 'gallery', to: 'photo_pairs#index', as: :gallery
 
   get ':id', to: 'pages#show'
   root to: 'pages#show'

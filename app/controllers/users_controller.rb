@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :load_user, except: :index
+  before_action :set_request_variant
 
   def index
     @users = policy_scope(User.order(:name).page(params[:page]))
@@ -27,5 +28,9 @@ class UsersController < ApplicationController
   def load_user
     @user = User.find params[:id]
     authorize @user
+  end
+
+  def set_request_variant
+    request.variant = :mobile if browser.mobile?
   end
 end

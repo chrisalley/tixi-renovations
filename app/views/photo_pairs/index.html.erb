@@ -1,4 +1,4 @@
-<% title "Photo Pairs" %>
+<% title "Gallery" %>
 
 <% if policy(PhotoPair).new? %>
   <p>
@@ -9,8 +9,28 @@
   </p>
 <% end %>
 
+<% if @photo_pairs.present? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Before Photo</th>
+        <th>After Photo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @photo_pairs.each do |photo_pair| %>
+        <tr>
+          <td><%= image_tag photo_pair.before_photo_url(:desktop) %></td>
+          <td><%= image_tag photo_pair.after_photo_url(:desktop) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
 <% if @photo_pairs.present? && administrator? %>
-  <table class="table">
+  <h3>Administrate Photo Pairs</h3>
+  <table>
     <thead>
       <tr>
         <th>Before Photo</th>

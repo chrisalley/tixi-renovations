@@ -11,7 +11,15 @@ class PhotoUploader < CarrierWave::Uploader::Base
     process resize_to_fill: [150, 100]
   end
 
-  version :regular do
+  version :mobile do
+    process resize_to_fill: [300, 200]
+  end
+
+  version :desktop do
+    process resize_to_fill: [400, 267]
+  end
+
+  version :popover do
     process resize_to_fill: [600, 400]
   end
 

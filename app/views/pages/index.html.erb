@@ -10,7 +10,7 @@
 <% end %>
 
 <% if @pages.present? && administrator? %>
-  <table class="table">
+  <table>
     <thead>
       <tr>
         <th>Name</th>
@@ -25,18 +25,12 @@
           <td><%= link_to page.name, page %></td>
           <td><%= page.published? ? "Yes" : "No" %></td>
           <td>
-            <%= link_to "Edit Page", edit_page_path(page),
-              class: "btn btn-default",
-              role: "button"
-            %>
+            <%= link_to "Edit Page", edit_page_path(page) %>
           </td>
           <td>
             <%= link_to 'Delete Page', page,
               data: { confirm: 'Are you sure you want to delete this page?' },
-              method: :delete,
-              class: "btn btn-danger",
-              role: "button"
-            %>
+              method: :delete %>
           </td>
         </tr>
     <% end %>

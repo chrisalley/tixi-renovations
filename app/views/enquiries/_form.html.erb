@@ -1,68 +1,60 @@
 <%= form_for @enquiry, html: { role: "form", class: "form-horizontal" } do |f| %>
   <%= render "shared/error_messages", target: @enquiry %>
-  <div class="form-group">
-    <%= f.label :type_of_work, "Type of Work", class: "col-xs-2 control-label" %>
-    <div class="col-xs-10">
-      <%= f.text_area :type_of_work, class: "form-control", rows: "10" %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :first_name, "First Name", class: "col-xs-2 control-label" %>
-    <div class="col-xs-10">
-      <%= f.text_field :first_name, class: "form-control" %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :last_name, "Last Name", class: "col-xs-2 control-label" %>
-    <div class="col-xs-10">
-      <%= f.text_field :last_name, class: "form-control" %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :email_address, "Email Address", class: "col-xs-2 control-label" %>
-    <div class="col-xs-10">
-      <%= f.text_field :email_address, class: "form-control" %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :telephone, "Telephone", class: "col-xs-2 control-label" %>
-    <div class="col-xs-10">
-      <%= f.text_field :telephone, class: "form-control" %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :address_line_1, "Address Line 1", class: "col-xs-2 control-label" %>
-    <div class="col-xs-10">
-      <%= f.text_field :address_line_1, class: "form-control" %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :address_line_2, "Address Line 2", class: "col-xs-2 control-label" %>
-    <div class="col-xs-10">
-      <%= f.text_field :address_line_2, class: "form-control" %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :city, "City", class: "col-xs-2 control-label" %>
-    <div class="col-xs-10">
-      <%= f.text_field :city, class: "form-control" %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :state, "State", class: "col-xs-2 control-label" %>
-    <div class="col-xs-10">
-      <%= f.text_field :state, class: "form-control" %>
-    </div>
-  </div>
-  <div class="form-group">
-    <%= f.label :postal_code, "Postal Code", class: "col-xs-2 control-label" %>
-    <div class="col-xs-10">
-      <%= f.text_field :postal_code, class: "form-control" %>
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="col-xs-offset-2 col-xs-10">
-      <%= f.submit "Submit Enquiry", class: "btn btn-default" %>
-    </div>
-  </div>
+  <fieldset>
+    <ul>
+      <li>
+        <%= f.label :type_of_work, "Details of Work Required" %>
+        <%= f.text_area :type_of_work, rows: "10" %>
+      </li>
+    </ul>
+  </fieldset>
+  <fieldset>
+    <legend>Contact Information</legend>
+    <ul>
+      <li>
+        <%= f.label :first_name, "First Name (required)" %>
+        <%= f.text_field :first_name %>
+      </li>
+      <li>
+        <%= f.label :last_name, "Last Name (required)" %>
+        <%= f.text_field :last_name %>
+      </li>
+      <li>
+        <%= f.label :email_address, "Email Address (required)" %>
+        <%= f.text_field :email_address %>
+      </li>
+      <li>
+        <%= f.label :telephone, "Telephone" %>
+        <%= f.text_field :telephone %>
+      </li>
+    </ul>
+  </fieldset>
+  <fieldset>
+    <legend>Postal Address</legend>
+    <ul>
+      <li>
+        <%= f.label :address_line_1, "Address Line 1" %>
+        <%= f.text_field :address_line_1 %>
+      </li>
+      <li>
+        <%= f.label :address_line_2, "Address Line 2" %>
+        <%= f.text_field :address_line_2 %>
+      </li>
+      <li>
+        <%= f.label :city, "City" %>
+        <%= f.text_field :city %>
+      </li>
+      <li>
+        <%= f.label :state, "State" %>
+        <%= f.text_field :state %>
+      </li>
+      <li>
+        <%= f.label :postal_code, "Postal Code" %>
+        <%= f.text_field :postal_code %>
+      </li>
+    </ul>
+  </fieldset>
+  <p>
+    <%= f.submit "Submit Enquiry" %>
+  </p>
 <% end %>

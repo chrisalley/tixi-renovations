@@ -1,3 +1,211 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  background-color: #7b7b7b;
+}
+
+
+header {
+  img {
+    border-top-left-radius: 10px;
+    margin: 0;
+  }
+
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 950px;
+  height: 300px;
+  background-image: url(image_path('banner.jpg'));
+}
+
+nav#administration {
+  width: 950px;
+  background-color: #262626;
+  color: white;
+  padding: 0;
+
+  ul {
+    margin: 0;
+    padding-top: 0px;
+    padding-bottom: 20px;
+
+    li {
+      display: inline;
+    }
+  }
+}
+
+nav {
+  margin-left: auto;
+  margin-right: auto;
+  width: 950px;
+  background-color: #262626;
+  color: white;
+  padding: 0;
+
+  p {
+    padding-top: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  ul {
+    margin: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    li {
+      display: inline;
+      margin-right: 50px;
+
+
+    }
+  }
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  color: gray;
+}
+
+main {
+  margin-left: auto;
+  margin-right: auto;
+  width: 950px;
+  background-color: #626262;
+  margin-top: 0;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  a:hover {
+    color: #cccccc;
+  }
+
+  h2 {
+    padding-left: 35px;
+    padding-right: 35px;
+  }
+
+  h3 {
+    padding-left: 35px;
+    padding-right: 35px;
+    margin-bottom: 0;
+  }
+
+  p {
+    padding-left: 35px;
+    padding-right: 35px;
+    line-height: 1.5;
+  }
+
+  ul {
+    margin-left: 20px;
+  }
+
+  table {
+    margin-left: 35px;
+    margin-right: 35px;
+
+    th {
+      padding: 20px;
+    }
+
+    td {
+      padding: 20px;
+    }
+  }
+
+  dl {
+    margin-left: 35px;
+    margin-right: 35px;
+  }
+
+  form {
+    padding-left: 35px;
+    padding-right: 35px;
+
+    p {
+      text-align: center;
+
+      input[type="submit"] {
+        margin-top: 10px;
+        border: 0;
+        border-radius: 5px;
+        padding: 20px;
+      }
+    }
+
+    fieldset {
+      border: 0;
+      border-radius: 5px;
+      background-color: #7a7a7a;
+
+      legend {
+        padding-top: 60px;
+        padding-left: 10px;
+
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-weight: bold;
+      }
+
+      ul {
+        list-style-type: none;
+        padding-bottom: 30px;
+
+        li {
+          margin-bottom: 5px;
+          clear: both;
+
+          label {
+            margin-top: 20px;
+            margin-left: 20px;
+            margin-right: 20px;
+            float: left;
+            text-align: right;
+            min-width: 200px;
+          }
+
+          input {
+            width: 500px;
+            height: 30px;
+            border-radius: 5px;
+            padding: 10px;
+          }
+
+          textarea {
+            width: 500px;
+            height: 200px;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+main#mobile {
+  width: 250px;
+}
+
+footer {
+  margin-left: auto;
+  margin-right: auto;
+  width: 950px;
+  background-color: #626262;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}

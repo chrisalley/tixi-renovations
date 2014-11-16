@@ -23,15 +23,15 @@ group :production do
   gem 'therubyracer', '~> 0.12.1'
 end
 
-gem 'autoprefixer-rails', '~> 3.1.2'
-gem 'bootstrap-sass', '~> 3.3.0'
+gem 'browser', '~> 0.7.2'
 gem 'carrierwave', '~> 0.10.0'
-gem 'coffee-rails', '~> 4.0.1'
+gem 'coffee-rails', '~> 4.1.0'
 gem 'devise', '~> 3.2.4'
 gem 'jquery-rails', '~> 3.1.0'
 gem 'kaminari', '~> 0.15.0'
 gem 'kramdown', '~> 1.3.3'
 gem 'mini_magick', '~> 3.7.0'
+gem 'normalize-rails', '~> 3.0.1'
 gem 'omniauth', '~> 1.2.1'
 gem 'omniauth-twitter', '~> 1.0.1'
 gem 'pg', '~> 0.17.1'

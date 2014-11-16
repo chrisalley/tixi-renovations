@@ -15,7 +15,8 @@
         <%= f.hidden_field :after_photo_cache %>
       </li>
       <li>
-        <label><%= f.check_box :published %>Publish this photo?</label>
+        <%= f.label :published, "Publish this Photo Pair?" %>
+        <%= f.check_box :published %>
       </li>
     </ul>
   </fieldset>

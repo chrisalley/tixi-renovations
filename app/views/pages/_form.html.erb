@@ -11,7 +11,8 @@
         <%= f.text_area :content, rows: "10" %>
       </li>
       <li>
-        <label><%= f.check_box :published %>Publish this page?</label>
+        <%= f.label :published, "Publish this page?" %>
+        <%= f.check_box :published %>
       </li>
     </ul>
   </fieldset>

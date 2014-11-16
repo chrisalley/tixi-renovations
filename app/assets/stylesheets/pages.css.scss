@@ -209,3 +209,22 @@ footer {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
+
+#flash_notice {
+  margin-left: 35px;
+  margin-right: 35px;
+  color: lightgreen;
+  padding-bottom: 20px;
+}
+
+alert {
+  color: lightgreen;
+}
+
+alert-success {
+  color: lightgreen;
+}
+
+alert-danger {
+  color: orange;
+}

@@ -16,7 +16,7 @@ class EnquiriesController < ApplicationController
     authorize @enquiry
     if @enquiry.save
       EnquiryMailer.new_enquiry_email(@enquiry).deliver
-      redirect_to root_url, notice: "Your enquiry has been submitted."
+      redirect_to new_enquiry_path, notice: "Thank you. Your enquiry has been submitted."
     else
       render :new
     end
@@ -48,7 +48,7 @@ class EnquiriesController < ApplicationController
     @enquiry = Enquiry.find params[:id]
     authorize @enquiry
   end
-  
+
   def set_request_variant
     request.variant = :mobile if browser.mobile?
   end

@@ -32,7 +32,7 @@
       <% end %>
     </nav>
     <main>
-      <% unless params[:controller] == 'pages' && params[:id] == 'home' %>
+      <% unless yield(:title) == 'Home' %>
         <h2><%= yield(:title) %></h2>
       <% end %>
       <%= render partial: 'layouts/flash_messages' %>

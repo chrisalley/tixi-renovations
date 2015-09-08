@@ -87,4 +87,7 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_options = { from: 'noreply@tixirenovations.com' }
   config.action_mailer.delivery_method = :sendmail
+
+  # Set each production log to a 100MB, with a total of 10 old logs.
+  config.logger = Logger.new("#{Rails.root}/log/#{Rails.env}.log", 10, 104857600)
 end

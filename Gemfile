@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.1.7'
+gem 'rails', '4.2.4'
 
 group :development do
   gem 'capistrano', '~> 2.15.5'
@@ -27,7 +27,7 @@ end
 gem 'browser', '~> 0.7.2'
 gem 'carrierwave', '~> 0.10.0'
 gem 'coffee-rails', '~> 4.1.0'
-gem 'devise', '~> 3.2.4'
+gem 'devise', '~> 3.5.2'
 gem 'jquery-rails', '~> 3.1.0'
 gem 'kaminari', '~> 0.15.0'
 gem 'kramdown', '~> 1.3.3'
